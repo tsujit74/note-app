@@ -1,10 +1,12 @@
 
 
 ````markdown
+---
 # Full-Stack Note-Taking Application
 
 A full-stack note-taking application built with **React (TypeScript)** on the front-end and **Node.js (TypeScript)** on the back-end. Users can sign up using **email + OTP** or **Google login**, create and delete notes, and manage their account securely with **JWT authentication**.
 
+---
 ---
 
 ## Features
@@ -25,7 +27,7 @@ A full-stack note-taking application built with **React (TypeScript)** on the fr
   - JWT for secure API access
 
 ---
-
+---
 ## Technology Stack
 
 - **Frontend:** React.js + TypeScript + Tailwind CSS
@@ -34,7 +36,7 @@ A full-stack note-taking application built with **React (TypeScript)** on the fr
 - **Authentication:** JWT + Google OAuth
 - **Version Control:** Git
 - **Deployment:** Frontend Vercel and Backend Render
-
+---
 ---
 
 ## Setup Instructions
