@@ -1,4 +1,4 @@
-Here’s a professional **README.md** for your full-stack note-taking application:
+
 
 ````markdown
 # Full-Stack Note-Taking Application
@@ -30,7 +30,7 @@ A full-stack note-taking application built with **React (TypeScript)** on the fr
 
 - **Frontend:** React.js + TypeScript + Tailwind CSS
 - **Backend:** Node.js + Express (TypeScript)
-- **Database:** MongoDB 
+- **Database:** MongoDB
 - **Authentication:** JWT + Google OAuth
 - **Version Control:** Git
 - **Deployment:** Frontend Vercel and Backend Render
@@ -91,16 +91,16 @@ Run the frontend:
 npm start
 ```
 
-Frontend will run on `http://localhost:3000`
+Frontend will run on `http://localhost:3000`.
 
 ---
 
 ## Deployment
 
-* Deploy backend to your preferred cloud platform RENDER
-* Deploy frontend to Vercel or Netlify
-* Ensure the frontend `.env` `REACT_APP_API_URL` points to your deployed backend URL
-* Google OAuth should use your production domain in the Google Cloud Console
+* Deploy backend to Render.
+* Deploy frontend to Vercel or Netlify.
+* Ensure the frontend `.env` `REACT_APP_API_URL` points to your deployed backend URL.
+* Google OAuth should use your production domain in the Google Cloud Console.
 
 ---
 
@@ -114,13 +114,15 @@ Frontend will run on `http://localhost:3000`
 
 ---
 
-
----
-
 ## Notes
 
-* Only registered users can create or delete notes
+* Only registered users can create or delete notes.
+* OTP expires in 5 minutes.
+* JWT token expires in 7 days.
 
 ---
+
+```
+
 
 ```
