@@ -26,7 +26,6 @@ export default function Dashboard() {
   const { setErrors } = useError();
   const { addSuccess } = useSuccess();
 
-  // Fetch user info & notes once on mount
   useEffect(() => {
     if (!token) {
       setErrors(["You must be logged in."]);
@@ -52,8 +51,6 @@ export default function Dashboard() {
     };
 
     fetchData();
-    // Run only once on mount
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const addNote = async (title: string, content: string) => {

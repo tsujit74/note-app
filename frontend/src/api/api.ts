@@ -2,10 +2,9 @@
 import axios, { AxiosInstance, AxiosError, InternalAxiosRequestConfig } from "axios";
 import { useError } from "../contexts/ErrorContext";
 
-// Base URL from env or fallback
 const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000/api";
 
-// Create a single Axios instance
+
 const api: AxiosInstance = axios.create({
   baseURL: API_BASE,
   headers: {
@@ -13,7 +12,6 @@ const api: AxiosInstance = axios.create({
   },
 });
 
-// Request interceptor → attach token if available
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     const token = localStorage.getItem("token");
@@ -25,17 +23,17 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// --- Fix: Track if interceptor already added ---
+
 let responseInterceptorAttached = false;
 
-// Custom hook for using API with global error handling
+
 export const useApi = (): AxiosInstance => {
   const { setErrors } = useError();
 
   if (!responseInterceptorAttached) {
     api.interceptors.response.use(
       (response) => {
-        setErrors([]); // clear previous errors on success
+        setErrors([]); 
         return response;
       },
       (error: AxiosError<any>) => {

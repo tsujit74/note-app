@@ -19,17 +19,17 @@ function App() {
       <Header/>
 
       <Routes>
-        {/* Default route -> signup */}
+       
         <Route path="/" element={<Navigate to="/login" replace />} />
 
-        {/* Auth Pages */}
+       
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
 
-        {/* Protected Dashboard */}
+        
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
 
-        {/* Fallback */}
+       
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </Router>

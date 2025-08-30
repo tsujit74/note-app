@@ -8,8 +8,6 @@ import { SuccessProvider } from "./contexts/SuccessContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
-console.log("ID: ",process.env.REACT_APP_GOOGLE_CLIENT_ID)
-
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );

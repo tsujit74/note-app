@@ -5,16 +5,13 @@ import jwt from "jsonwebtoken";
 import { sendOTP } from "../services/otpService";
 import { OAuth2Client } from "google-auth-library";
 
-/** 🔹 Google client */
 const client = new OAuth2Client(process.env.VITE_GOOGLE_CLIENT_ID);
 
-/** 🔹 Utility: Generate 6-digit OTP */
+
 const generateOTP = () =>
   Math.floor(100000 + Math.random() * 900000).toString();
 
-/**
- * SIGNUP - Step 1 (Generate OTP & Save User)
- */
+
 export const signup = async (req: Request, res: Response) => {
   const { name, email, password } = req.body;
   if (!name || !email || !password) {
@@ -55,9 +52,7 @@ export const signup = async (req: Request, res: Response) => {
   });
 };
 
-/**
- * VERIFY OTP (Signup & Login)
- */
+
 export const verifyOTP = async (req: Request, res: Response) => {
   const { userId, otp } = req.body;
 
@@ -83,9 +78,7 @@ export const verifyOTP = async (req: Request, res: Response) => {
   return res.json({ message: "Verification successful", token });
 };
 
-/**
- * LOGIN - Step 1 (Password check → Send OTP)
- */
+
 export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   if (!email || !password)
@@ -119,9 +112,8 @@ export const login = async (req: Request, res: Response) => {
   });
 };
 
-/**
- * RESEND OTP
- */
+
+ 
 export const resendOTP = async (req: Request, res: Response) => {
   const { userId } = req.body;
   if (!userId) return res.status(400).json({ message: "UserId is required" });
@@ -146,12 +138,10 @@ export const resendOTP = async (req: Request, res: Response) => {
   });
 };
 
-/**
- * GOOGLE LOGIN (Direct ID Token Verification)
- */
+
 export const googleLogin = async (req: Request, res: Response) => {
   try {
-    const { token } = req.body; // frontend sends Google ID token
+    const { token } = req.body; 
     if (!token) {
       return res.status(400).json({ message: "Google token is required" });
     }
@@ -185,7 +175,7 @@ export const googleLogin = async (req: Request, res: Response) => {
       user = new User({
         name,
         email,
-        password: null, // Google login → no password
+        password: null, 
         isVerified: true,
       });
       await user.save();

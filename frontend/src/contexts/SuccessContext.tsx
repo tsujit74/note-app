@@ -5,7 +5,7 @@ type SuccessContextType = {
   successMessages: string[];
   setSuccessMessages: (messages: string[]) => void;
   addSuccess: (message: string) => void;
-  clearSuccess: () => void; // ✅ add this
+  clearSuccess: () => void; 
 };
 
 const SuccessContext = createContext<SuccessContextType | undefined>(undefined);
