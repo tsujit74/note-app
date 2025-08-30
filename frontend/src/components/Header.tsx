@@ -1,13 +1,14 @@
+// components/Header.tsx
 import React from "react";
 
-type HeaderProps = {
-  title: string;
-};
-
-const Header: React.FC<HeaderProps> = ({ title }) => {
+const Header: React.FC = () => {
   return (
-    <header className="bg-blue-600 text-white p-4 text-center shadow-md">
-      <h1 className="text-xl font-bold">{title}</h1>
+    <header className="flex items-center justify-center md:justify-start p-2 shadow-md bg-white">
+      <img
+        src="/images/top.png"
+        alt="Logo"
+        className="w-48 md:w-64 h-auto object-contain"
+      />
     </header>
   );
 };

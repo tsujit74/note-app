@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import SuccessDisplay from "./components/SuccessDisplay";
 import ErrorDisplay from "./components/ErrorDisplay";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import Header from "./components/Header";
 // import NotFound from "./pages/NotFound";
 
 function App() {
@@ -15,10 +16,11 @@ function App() {
       {/* Global success messages */}
       <SuccessDisplay />
       <ErrorDisplay/>
+      <Header/>
 
       <Routes>
         {/* Default route -> signup */}
-        <Route path="/" element={<Navigate to="/signup" replace />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
 
         {/* Auth Pages */}
         <Route path="/signup" element={<Signup />} />
