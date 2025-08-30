@@ -13,18 +13,19 @@ import { authMiddleware } from "./middleware/authMiddleware";
 
 const app = express();
 
-app.options("*", cors({
+// ===== Middleware =====
+app.use(cors({
   origin: "https://note-app-inky-five.vercel.app",
-  credentials: true
+  credentials: true,
 }));
 
-app.use(express.json({ limit: "10mb" })); 
-app.use(express.urlencoded({ extended: true })); 
-app.use(morgan("dev")); 
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan("dev"));
 
 // ===== Routes =====
-app.use("/api/auth", authRoutes); 
-app.use("/api/notes", authMiddleware, noteRoutes); 
+app.use("/api/auth", authRoutes);
+app.use("/api/notes", authMiddleware, noteRoutes);
 app.use("/api/user", userRoutes);
 
 // ===== Health Check =====
@@ -51,9 +52,7 @@ const PORT = process.env.PORT || 5000;
 
 connectDB()
   .then(() => {
-    app.listen(PORT, () =>
-      console.log(` Server running on ${PORT}`)
-    );
+    app.listen(PORT, () => console.log(`Server running on ${PORT}`));
   })
   .catch((err) => {
     console.error("Failed to connect to DB:", err);
